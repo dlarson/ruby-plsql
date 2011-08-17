@@ -1326,13 +1326,13 @@ describe "Parameter type mapping /" do
       @numbers2 = Hash[*(5..7).map{|i|[-i,i]}.flatten]
       # test with reversed PL/SQL table indexes
       @employees = Hash[*(1..10).map do |i|
-          [11-i, {
-              :employee_id => i,
-              :first_name => "First #{i}",
-              :last_name => "Last #{i}",
-              :hire_date => Time.local(2000,01,i)
-            }]
-        end.flatten]
+        [11-i, {
+            :employee_id => i,
+            :first_name => "First #{i}",
+            :last_name => "Last #{i}",
+            :hire_date => Time.local(2000,01,i)
+          }]
+      end.flatten]
     end
 
     after(:all) do
@@ -1655,11 +1655,10 @@ describe "Parameter type mapping /" do
       plsql.test_collections.test_copy_objects(phones).should == [phones, {:x_phones => phones}]
     end
 
-    # This test fails without wcmatthysen's "Procedure-call Fix." pull request.
-    # it "should execute function with empty object array" do
-    #   phones = []
-    #   plsql.test_collections.test_copy_objects(phones).should == [phones, {:x_phones => phones}]
-    # end
+    it "should execute function with empty object array" do
+      phones = []
+      plsql.test_collections.test_copy_objects(phones).should == [phones, {:x_phones => phones}]
+    end
 
   end
 

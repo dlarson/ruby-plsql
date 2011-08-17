@@ -12,12 +12,17 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name = "ruby-plsql"
+  gem.name = "pinnacol-plsql"
   gem.summary = "Ruby API for calling Oracle PL/SQL procedures."
   gem.description = <<-EOS
-ruby-plsql gem provides simple Ruby API for calling Oracle PL/SQL procedures.
+pinnacol-plsql is a fork of the
+ruby-plsql gem which provides simple Ruby API for calling Oracle PL/SQL procedures.
 It could be used both for accessing Oracle PL/SQL API procedures in legacy applications
 as well as it could be used to create PL/SQL unit tests using Ruby testing libraries.
+
+The original ruby-plsql was forked and renamed so we could get to some needed 
+corrections quicker without having to deal with versioning problems that could
+arise from leaving the name the same.
 EOS
   gem.email = "raimonds.simanovskis@gmail.com"
   gem.homepage = "http://github.com/rsim/ruby-plsql"
